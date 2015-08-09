@@ -1,0 +1,188 @@
+
+<html>
+<body>
+
+<h1>Blood Donor Registration Form</h1>
+<style>
+  h1 {
+  margin-left: 70px;
+  }
+  form li {
+  list-style: none;
+  margin-bottom: 5px;
+  }
+
+  form ul li label{
+
+  float: left;
+  clear: left;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:14px;
+  }
+
+  form ul li input, select, span {
+  float: left;
+  margin-bottom: 10px;
+  }
+
+  form textarea {
+
+  float: left;
+  width: 350px;
+  height: 150px;
+  }
+
+  [type="submit"] {
+      clear: left;
+      margin: 420px 200px 0 290px;
+      font-size:18px
+  }
+
+  p {
+  margin-left: 70px;
+  font-weight: bold;
+  }
+.regform
+{
+    margin-left: 300px;
+    margin-right: 150px;
+    margin-inside: 10px;
+    background-color: #a6e1ec;
+
+}
+        .home{
+            
+            margin-left:800px;
+            margin-top: 100px;
+            font-weight: bold;
+            font-size: large;
+            font-style: inherit;
+        }
+        .error
+        {
+
+
+
+
+            margin-left: 900px;
+            margin-top:-600px;
+            color:#B00100;
+
+        }
+
+</style>
+
+
+
+<div class="regform">
+  <a class="home" href="http://localhost:3000">Home</a>
+<%= form_for :blooddb  ,url: bloods_path do |f| %>
+
+
+
+
+   <ul>
+    <li><label for="firstname">FirstName</label></li>
+    <li><%= f.text_field :firstname,:size=>30,:maxlength=>15 %></li>
+     <li></li>
+    <li><label for="lastname">LastName:</label></li>
+    <li><%= f.text_field :lastname,:size=>30,:maxlength=>15 %></li>
+     <li></li>
+    <li><label for="email_id">Email:</label></li>
+    <li><%= f.email_field :email_id,:size=>30,:maxlength=>50 %></li>
+     <li></li>
+     <li><%= f.label :gender, "Male" %>
+      <%= f.radio_button :gender,'Male', checked: true%>
+       <%= f.label :gender, "Female" %>
+      <%= f.radio_button :gender, 'Female'%></li>
+     <li></li>
+    <li><label for="dob">DOB:</label></li>
+    <li><%= f.date_select :dob,:size=>10,:maxlength=>50,:start_year=>1911 %></li>
+     <li></li>
+    <li><label >BloodGroup:</label></li>
+    <li>
+    <%= f.select :bloodgrp, options_for_select(%w[A+ A- B+ B- AB+ AB- O+ O- A1+ A1- A2+ A2- A1B+ A1B- A2B+ A2B- BombayBloodGroup]) %>
+    </li>
+     <li></li>
+    <li><label >MobileNo:</label></li>
+    <li><%= f.text_field :mobno,:size=>15,:maxlength=>10 %></li>
+     <li></li>
+    <li><label for="address">Address:</label></li>
+
+    <li><%= f.text_area :address,:size=>100,:maxlength=>100 %></li>
+     <li></li>
+     <li></li>
+    <li><label >State:</label></li>
+    <li>
+      <%= f.select :state, options_for_select(%w[AndamanandNicobarIslands
+      AndhraPradesh
+      ArunachalPradesh
+      Assam
+      Bihar
+      Chandigarh
+      Chhattisgarh
+      DadraandNagar Haveli
+      DamanandDiu
+      Delhi
+      Goa
+      Gujarat
+      Haryana
+      HimachalPradesh
+      JammuandKashmir
+      Jharkhand
+      Karnataka
+      Kerala
+      Lakshadweep
+      MadhyaPradesh
+      Maharashtra
+      Manipur
+      Meghalaya
+      Mizoram
+      Nagaland
+      Odisha
+      Puducherry
+      Punjab
+      Rajasthan
+      Sikkim
+      TamilNadu
+      Telengana
+      Tripura
+      UttarPradesh
+      Uttarakhand
+      WestBengal
+
+      ]) %>
+    </li>
+
+     <li></li>
+    <li><label>City:</label></li>
+    <li><%= f.text_field :city,:size=>15,:maxlength=>15 %></li>
+     <li></li>
+    <li><label>PIN Code:</label></li>
+    <li><%= f.text_field :pincode,:size=>15,:maxlength=>6 %></li>
+
+    <%= f.submit(value='Register')%>
+
+  </ul>
+      </div>
+
+      <% if @blood.errors.any? %>
+          <div class="error" id="error_explanation">
+            <h2>
+              <%= pluralize(@blood.errors.count, "error") %>
+
+            </h2>
+            <ul>
+              <% @blood.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+<% end %>
+
+</body>
+</html>

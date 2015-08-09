@@ -1,0 +1,65 @@
+<html>
+<body>
+
+<h1>Available Blood Donors</h1>
+<style>
+    .home{
+
+        margin-left:1100px;
+
+        font-weight: bold;
+        font-size: large;
+        font-style: inherit;
+    }
+    table{
+
+        width:98%;
+        margin-left: 10px;
+
+
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;
+    }
+    table tr:nth-child(even) {
+        background-color: #eee;
+    }
+    table tr:nth-child(odd) {
+        background-color:#fff;
+    }
+    table th	{
+        background-color: black;
+        color: white;
+    }
+</style>
+<a class="home" href="http://localhost:3000">Home</a>
+<table >
+  <tr>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email_ID</th>
+    <th>Gender</th>
+    <th>DOB</th>
+    <th>Mobile.No</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Pincode</th>
+  </tr>
+
+  <% @bloods.each do |blood| %>
+      <tr>
+        <td><%= blood.firstname %></td>
+        <td><%= blood.lastname %></td>
+        <td><%= blood.email_id %></td>
+        <td><%= blood.gender %></td>
+        <td><%= blood.dob %></td>
+        <td><%= blood.mobno %></td>
+        <td><%= blood.address %></td>
+        <td><%= blood.city %></td>
+        <td><%= blood.pincode %></td>
+      </tr>
+  <% end %>
+</table>
+</body>
+</html>

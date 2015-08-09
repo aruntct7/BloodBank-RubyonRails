@@ -1,0 +1,102 @@
+<html>
+<body>
+
+
+<h1 class="head"> Search For Blood Donor</h1>
+
+<style>
+  .find_div
+  {
+
+    margin-left: 550px;
+      margin-top:150px;
+      border-radius: 25px;
+      border: 2px solid #ac2925;
+      background: #a6e1ec;
+      padding: 20px;
+      width: 270px;
+      height: 250px;
+
+
+
+  }
+        .head
+        {
+            
+            font-weight: bolder;
+            font-size: 40px;
+        }
+  .home{
+
+      margin-left:950px;
+      margin-top: 40px;
+      font-weight: bold;
+      font-size: large;
+      font-style: inherit;
+  }
+  </style>
+<a class="home" href="http://localhost:3000">Home</a>
+<div class="find_div">
+  <%= form_for :blooddb  , url: {action: "show"} do |f| %>
+
+      <label >BloodGroup:</label>
+     <br>
+      <br>
+      <%= f.select :bloodgrp, options_for_select(%w[A+ A- B+ B- AB+ AB- O+ O- A1+ A1- A2+ A2- A1B+ A1B- A2B+ A2B- BombayBloodGroup]) %>
+
+       <br>
+      <br>
+      <label >State:</label>
+      <br>
+      <br>
+        <%= f.select :state, options_for_select(%w[AndamanandNicobarIslands
+      AndhraPradesh
+      ArunachalPradesh
+      Assam
+      Bihar
+      Chandigarh
+      Chhattisgarh
+      DadraandNagar Haveli
+      DamanandDiu
+      Delhi
+      Goa
+      Gujarat
+      Haryana
+      HimachalPradesh
+      JammuandKashmir
+      Jharkhand
+      Karnataka
+      Kerala
+      Lakshadweep
+      MadhyaPradesh
+      Maharashtra
+      Manipur
+      Meghalaya
+      Mizoram
+      Nagaland
+      Odisha
+      Puducherry
+      Punjab
+      Rajasthan
+      Sikkim
+      TamilNadu
+      Telengana
+      Tripura
+      UttarPradesh
+      Uttarakhand
+      WestBengal
+
+      ]) %>
+
+      <br>
+       <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.submit(value='Find')%>
+
+
+
+
+      </div>
+
+  <% end %>
+        </body>
+</html>
